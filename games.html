@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Games - Realify Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <div class="logo-nav">
+        <div class="logo">
+          <img src="images/logo.png" alt="Realify Games Logo">
+        </div>
+
+        <!-- Hamburger menü butonu (mobil için) -->
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="games.html">Games</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://www.youtube.com/" target="_blank"><img src="images/youtube.png" alt="YouTube"></a>
+        <a href="https://discord.gg/Y5bwM6BC" target="_blank"><img src="images/discord.png" alt="Discord"></a>
+        <a href="https://www.instagram.com/realifygames?igsh=Z3p0d21yYjkzamM2&utm_source=qr" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <section style="text-align:center; padding:50px 20px;">
+      <h2>🎮 Our Games</h2>
+      <p style="max-width:800px; margin:10px auto 40px; color:#ddd; font-size:1.1rem;">
+        Explore our collection of games – each crafted with creativity, innovation, and passion for delivering unique experiences to players worldwide.
+      </p>
+    </section>
+
+    <section id="games-container" class="games-grid">
+      <!-- Game 1 -->
+      <div class="game-card">
+        <img src="images/oyun1.jpg" alt="Teddy Horses">
+        <h3>Teddy Horses</h3>
+        <p>Buy horses, breed them, and participate in races on the Teddy Bears' farm. Raise champion horses with strategic breeding, win awards, and expand your farm.</p>
+        <a href="https://store.steampowered.com/app/3957780/Teddy_Horses/" target="_blank">View on Steam</a>
+      </div>
+
+      <!-- Game 2 -->
+      <div class="game-card">
+        <img src="images/oyun2.jpg" alt="Chasing Her Light">
+        <h3>Chasing Her Light</h3>
+        <p>A survival-adventure game about a grieving man who ventures into a snowy forest to find his missing dog, battling the cold and chopping through obstacles with his axe.</p>
+        <a href="https://store.steampowered.com/app/3694270/Chasing_Her_Light/" target="_blank">View on Steam</a>
+      </div>
+
+      <!-- Game 3 -->
+      <div class="game-card">
+        <img src="images/oyun3.jpg" alt="King Charles: Rise of the Alpha">
+        <h3>King Charles: Rise of the Alpha</h3>
+        <p>A whimsical low-poly survival-adventure game about loyalty, leadership, and the rise of a crowned pup destined to unite the forest.</p>
+        <a href="https://store.steampowered.com/app/3817640/King_Charles_Rise_of_the_Alpha/" target="_blank">View on Steam</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- JS for Hamburger -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('show');
+    });
+
+    const links = document.querySelectorAll('.nav-links a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+        hamburger.classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

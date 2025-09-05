@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Realify Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <div class="logo-nav">
+        <div class="logo">
+          <img src="images/logo.png" alt="Realify Games Logo">
+        </div>
+
+        <!-- Hamburger menü butonu (mobil için) -->
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="games.html">Games</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://www.youtube.com/" target="_blank"><img src="images/youtube.png" alt="YouTube"></a>
+        <a href="https://discord.gg/Y5bwM6BC" target="_blank"><img src="images/discord.png" alt="Discord"></a>
+        <a href="https://www.instagram.com/realifygames?igsh=Z3p0d21yYjkzamM2&utm_source=qr" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <section style="text-align:center; padding:50px 20px;">
+      <h2>About Us</h2>
+      <p style="max-width:800px; margin:10px auto 40px; color:#ddd; font-size:1.1rem; text-align:center;">
+        <strong>Realify Games</strong> was founded by two university students united by a passion for game development and interactive storytelling. As a young and ambitious studio, we are dedicated to creating high-quality, engaging games that entertain, challenge, and inspire players.
+
+        Our approach combines creativity, innovation, and technical expertise. Each game we develop reflects our commitment to thoughtful design, compelling narratives, and immersive gameplay. We strive not only to deliver enjoyable experiences but also to push the boundaries of indie game development.
+
+        At <strong>Realify Games</strong>, we see every project as an opportunity to grow as developers, explore new ideas, and make a meaningful contribution to the gaming industry. Our mission is to create games that resonate with players worldwide and leave a lasting impression.
+        <br><br>
+        From cozy adventures to strategic challenges, we aim to deliver games that inspire, entertain, and connect people.  
+        Thank you for being part of our journey! 🚀
+      </p>
+    </section>
+  </main>
+
+  <!-- JS for Hamburger -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('show');
+    });
+
+    const links = document.querySelectorAll('.nav-links a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+        hamburger.classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
