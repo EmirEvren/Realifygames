@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Games - Realify Games</title>
+  <title>Realify Games - Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Başlığı ortalamak için */
+    .games-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -42,36 +49,50 @@
 
   <!-- MAIN -->
   <main>
+    <!-- Intro -->
     <section class="intro-section">
-      <h2>🎮 Our Games</h2>
+      <h2>🎮 Welcome to Realify Games</h2>
       <p class="intro-text">
-        Explore our collection of games – each crafted with creativity, innovation, and passion for delivering unique experiences to players worldwide.
+      Welcome to Realify Games, where passion meets creativity! We're a small indie game development studio made up of two university students with a shared vision: to create unique, immersive experiences that captivate players around the world. Each game we craft is built with care, aiming to push the limits of storytelling and gameplay. Dive into our worlds and let the adventure begin!
       </p>
     </section>
 
-    <section id="games-container" class="games-grid">
-      <!-- Game 1 -->
-      <div class="game-card">
-        <img src="images/oyun1.jpg" alt="Teddy Horses">
-        <h3>Teddy Horses</h3>
-        <p>Buy horses, breed them, and participate in races on the Teddy Bears' farm. Raise champion horses with strategic breeding, win awards, and expand your farm.</p>
-        <a href="https://store.steampowered.com/app/3957780/Teddy_Horses/" target="_blank">View on Steam</a>
-      </div>
+    <!-- About Preview -->
+    <section class="about-preview">
+      <h2>About Us</h2>
+      <p>
+     At Realify Games, we're driven by a love for gaming and a relentless pursuit of innovation. As university students, we know what it's like to balance deadlines and passion, and that’s exactly what fuels our indie game development journey. Our goal is to create memorable, engaging experiences that not only entertain but inspire players to explore new worlds. Every project we take on reflects our commitment to quality, creativity, and pushing the boundaries of what games can be.
+      </p>
+      <a href="about.html" class="btn">Learn More</a>
+    </section>
 
-      <!-- Game 2 -->
-      <div class="game-card">
-        <img src="images/oyun2.jpg" alt="Chasing Her Light">
-        <h3>Chasing Her Light</h3>
-        <p>A survival-adventure game about a grieving man who ventures into a snowy forest to find his missing dog, battling the cold and chopping through obstacles with his axe.</p>
-        <a href="https://store.steampowered.com/app/3694270/Chasing_Her_Light/" target="_blank">View on Steam</a>
-      </div>
+    <!-- Featured Games -->
+    <section class="games-section">
+      <h2>🌟 Featured Games</h2>
+      <div id="games-container" class="games-grid">
+        <!-- Game 1 -->
+        <div class="game-card">
+          <img src="images/oyun1.jpg" alt="Teddy Horses">
+          <h3>Teddy Horses</h3>
+          <p>Buy horses, breed them, and participate in races on the Teddy Bears' farm. Raise champion horses with strategic breeding, win awards, and expand your farm.</p>
+          <a href="https://store.steampowered.com/app/3957780/Teddy_Horses/" target="_blank">View on Steam</a>
+        </div>
 
-      <!-- Game 3 -->
-      <div class="game-card">
-        <img src="images/oyun3.jpg" alt="King Charles: Rise of the Alpha">
-        <h3>King Charles: Rise of the Alpha</h3>
-        <p>A whimsical low-poly survival-adventure game about loyalty, leadership, and the rise of a crowned pup destined to unite the forest.</p>
-        <a href="https://store.steampowered.com/app/3817640/King_Charles_Rise_of_the_Alpha/" target="_blank">View on Steam</a>
+        <!-- Game 2 -->
+        <div class="game-card">
+          <img src="images/oyun2.jpg" alt="Chasing Her Light">
+          <h3>Chasing Her Light</h3>
+          <p>A survival-adventure game about a grieving man who ventures into a snowy forest to find his missing dog, battling the cold and chopping through obstacles with his axe.</p>
+          <a href="https://store.steampowered.com/app/3694270/Chasing_Her_Light/" target="_blank">View on Steam</a>
+        </div>
+
+        <!-- Game 3 -->
+        <div class="game-card">
+          <img src="images/oyun3.jpg" alt="King Charles: Rise of the Alpha">
+          <h3>King Charles: Rise of the Alpha</h3>
+          <p>A whimsical low-poly survival-adventure game about loyalty, leadership, and the rise of a crowned pup destined to unite the forest.</p>
+          <a href="https://store.steampowered.com/app/3817640/King_Charles_Rise_of_the_Alpha/" target="_blank">View on Steam</a>
+        </div>
       </div>
     </section>
   </main>
