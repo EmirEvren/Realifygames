@@ -277,3 +277,102 @@ h2 {
         height: 150px;
     }
 }
+/* ==== PROJECTS SAYFASI ==== */
+#projects-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.project-card {
+    max-width: 420px;  /* Oyun kartına göre daha dar */
+    width: 100%;
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.5);
+    text-align: center;
+    padding: 25px;
+    border: 1px solid rgba(255,106,0,0.3);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(255,106,0,0.6);
+}
+
+.project-card img {
+    width: 100%;
+    max-height: 240px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: transform 0.4s;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,106,0,0.6);
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.project-card a {
+    display: inline-block;
+    padding: 12px 22px;
+    background: linear-gradient(90deg, #ff6a00, #ff8533);
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.project-card a:hover {
+    background: linear-gradient(90deg, #ff8533, #ff6a00);
+    box-shadow: 0 0 15px #ff6a00;
+    transform: translateY(-3px);
+}
+
+/* Küçük ekran uyumu */
+@media (max-width: 480px) {
+    .project-card {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .project-card img {
+        max-height: 180px;
+    }
+
+    .project-card h3 {
+        font-size: 1.3rem;
+    }
+}
+/* ==== PROJECTS SAYFASI ÖZEL ==== */
+#projects-container {
+    display: flex;
+    justify-content: center;
+}
+
+#projects-container .game-card {
+    max-width: 800px;   /* kart genişliğini sınırladık */
+    margin: 0 auto;     /* ortalama */
+}
+
+#projects-container .game-card img {
+    height: 300px;      /* resim yüksekliği küçüldü */
+    object-fit: cover;
+}

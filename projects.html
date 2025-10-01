@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Projects - Realify Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <div class="logo-nav">
+        <div class="logo">
+          <img src="images/logo.png" alt="Realify Games Logo">
+        </div>
+
+        <!-- Hamburger menü (mobil) -->
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="games.html">Games</a>
+          <a href="projects.html" class="active">Projects</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://youtube.com/@realify-games" target="_blank"><img src="images/youtube.png" alt="YouTube"></a>
+        <a href="https://discord.gg/Y5bwM6BC" target="_blank"><img src="images/discord.png" alt="Discord"></a>
+        <a href="https://www.instagram.com/realifygames" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <section style="text-align:center; padding:50px 20px;">
+      <h2>🚀 Our Projects</h2>
+      <p style="max-width:800px; margin:10px auto 40px; color:#ddd; font-size:1.1rem;">
+        Discover our current projects – immersive gaming experiences where creativity meets adventure. 
+        Each project is crafted to captivate players, spark curiosity, and deliver unforgettable journeys. 
+        From unique worlds to engaging challenges, we design games that invite exploration, strategic thinking, 
+        and excitement. Join us as we bring these original ideas to life, one project at a time.
+      </p>
+    </section>
+
+    <section id="projects-container" class="projects-grid">
+      <!-- Project 1 -->
+      <div class="game-card">
+        <img src="images/project1.jpg" alt="Escape The Teddys">
+        <h3>Escape The Teddys</h3>
+        
+        <p>
+          <strong>ESCAPE: THE TEDDY’S</strong> is a stealth and puzzle-focused escape adventure where 
+          you sequentially control six toy bears. Before the child who owns the toys returns to the room, 
+          you must chain together each bear’s unique abilities in an “Interconnected” way to rescue your 
+          friends and unlock doors to find the way out.
+        </p>
+        
+        <p>
+          You will explore the room, turn lights on/off, move objects, solve puzzles, and advance stealthily 
+          by creating distractions. Switching to the right bear at the right moment, using their skills wisely, 
+          and planning each move carefully are the keys to escape. As each mini-task is completed, the team grows, 
+          new combinations unlock, and the escape route becomes clearer.
+        </p>
+        
+        <a href="https://drive.google.com/drive/folders/1LEld76JpN6HJGli1uDLBSaOLsgqDAuv8?usp=drive_link" target="_blank">View Project</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- JS for Hamburger -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+        hamburger.classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -27,8 +27,9 @@
         <div class="nav-links">
           <a href="index.html">Home</a>
           <a href="games.html">Games</a>
+          <a href="projects.html">Projects</a>
           <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
+          <a href="contact.html" class="active">Contact</a>
         </div>
       </div>
 
@@ -53,17 +54,30 @@
       <div style="max-width: 600px; margin: 30px auto;">
         <p style="color: #fff;"><strong>Email:</strong> info@realifygames.com</p>
 
-        <form action="#" method="post" style="margin-top: 20px; display: flex; flex-direction: column; gap: 15px;">
+        <!-- FORM START -->
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" style="margin-top: 20px; display: flex; flex-direction: column; gap: 15px;">
+          
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="10454ef7-afd0-4d7e-8175-f9c2b5662172">
+
+          <!-- Hedef Mail -->
+          <input type="hidden" name="to" value="info@realifygames.com">
+
+          <!-- Form inputları -->
           <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; border-radius: 5px; border: none;">
           <input type="email" name="email" placeholder="Your Email" required style="padding: 10px; border-radius: 5px; border: none;">
           <textarea name="message" rows="5" placeholder="Your Message" required style="padding: 10px; border-radius: 5px; border: none;"></textarea>
+
           <button type="submit" style="padding: 10px; border-radius: 5px; border: none; background-color: #007BFF; color: #fff; cursor: pointer;">Send Message</button>
         </form>
+
+        <!-- Success / Error mesajları -->
+        <div id="form-message" style="margin-top:15px; color:#fff; display:none;"></div>
       </div>
     </section>
   </main>
 
-  <!-- JS for Hamburger -->
+  <!-- JS -->
   <script>
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -79,6 +93,31 @@
         navLinks.classList.remove('show');
         hamburger.classList.remove('active');
       });
+    });
+
+    // Web3Forms Success / Error handling
+    const form = document.getElementById('contact-form');
+    const messageDiv = document.getElementById('form-message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData
+      });
+
+      if (response.ok) {
+        messageDiv.style.display = "block";
+        messageDiv.style.color = "#4BB543"; // yeşil
+        messageDiv.textContent = "✅ Your message has been sent successfully!";
+        form.reset();
+      } else {
+        messageDiv.style.display = "block";
+        messageDiv.style.color = "#FF3333"; // kırmızı
+        messageDiv.textContent = "❌ There was an error sending your message. Please try again.";
+      }
     });
   </script>
 
