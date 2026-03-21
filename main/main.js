@@ -1,42 +1,69 @@
-// main.js
+// main/main.js - Realify Games Dynamic Content Loader
 
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("games-container");
+    const container = document.getElementById("games-container");
 
-  if (!container) {
-    console.warn("⚠️ 'games-container' bulunamadı. Bu sayfada oyun listesi gösterilmeyecek.");
-    return;
-  }
-
-  fetch("/api/games")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP Hatası: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(games => {
-      if (!Array.isArray(games) || games.length === 0) {
-        container.innerHTML = `<p style="color:#ddd; text-align:center;">Henüz oyun bulunmamaktadır.</p>`;
+    // Eğer bulunduğumuz sayfada oyun konteyneri yoksa (About, Contact vb.) işlemi durdur
+    if (!container) {
         return;
-      }
+    }
 
-      games.forEach(game => {
-        const gameCard = document.createElement("div");
-        gameCard.classList.add("game-card");
+    console.log("🚀 Oyunlar sunucudan çekiliyor...");
 
-        gameCard.innerHTML = `
-          <img src="${game.image}" alt="${game.name}">
-          <h3>${game.name}</h3>
-          <p>${game.description}</p>
-          <a href="${game.steamLink}" target="_blank">View on Steam</a>
-        `;
+    // API'den oyun verilerini çek (server.js içindeki /api/games endpoint'i)
+    fetch("/api/games")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Sunucu Hatası: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(games => {
+            console.log("📦 Oyunlar başarıyla yüklendi:", games);
+            
+            // "Fetching amazing worlds..." yükleme mesajını temizle
+            container.innerHTML = "";
 
-        container.appendChild(gameCard);
-      });
-    })
-    .catch(error => {
-      console.error("API hatası:", error);
-      container.innerHTML = `<p style="color:#f88; text-align:center;">Oyunlar yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>`;
-    });
+            // Eğer oyun listesi boş gelirse
+            if (!Array.isArray(games) || games.length === 0) {
+                container.innerHTML = `<p class="empty-msg" style="text-align:center; width:100%; color: var(--text-dim); grid-column: 1/-1;">No games found at the moment. Stay tuned!</p>`;
+                return;
+            }
+
+            // Her oyun için HTML kartını oluştur ve ekrana bas
+            games.forEach(game => {
+                const gameCard = document.createElement("div");
+                gameCard.classList.add("game-card");
+
+                // Kart İçeriği: CSS ile tam uyumlu ve resim hatasına karşı korumalı (onerror)
+                gameCard.innerHTML = `
+                    <div class="card-image-wrapper">
+                        <img src="${game.image}" alt="${game.name}" onerror="this.src='/images/logo.png'" loading="lazy">
+                    </div>
+                    <div class="card-info">
+                        <span class="game-tagline">${game.tagline || 'Indie Adventure'}</span>
+                        <h3>${game.name}</h3>
+                        <p>${game.description}</p>
+                        <div class="card-footer">
+                            <a href="${game.steamLink}" target="_blank" class="steam-btn">
+                                VIEW ON STEAM
+                            </a>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(gameCard);
+            });
+            
+            // Eğer slider (index.html) sayfasındaysak başlangıç konumuna sıfırla
+            container.scrollLeft = 0;
+        })
+        .catch(error => {
+            console.error("❌ API Error:", error);
+            container.innerHTML = `
+                <div class="error-msg" style="text-align:center; width:100%; padding:40px; color: #ff3333; grid-column: 1/-1;">
+                    <p>❌ Failed to load games. Please make sure the server is running.</p>
+                </div>
+            `;
+        });
 });

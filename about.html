@@ -3,76 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Realify Games</title>
+  <title>About Us | Realify Games Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <nav>
-      <div class="logo-nav">
+      <div class="left-nav-group">
         <div class="logo">
           <img src="images/logo.png" alt="Realify Games Logo">
         </div>
 
-        <!-- Hamburger menü butonu (mobil için) -->
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="games.html">Games</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html" class="active">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div class="right-nav-group">
+        <div class="social-icons">
+          <a href="https://www.youtube.com/@RealifyGames" target="_blank"><img src="images/youtube.png" alt="YouTube"></a>
+          <a href="https://x.com/RealifyGames" target="_blank"><img src="images/xlogo.png" alt="Twitter"></a>
+          <a href="https://discord.gg/2Dh8RU8bVp" target="_blank"><img src="images/discord.png" alt="Discord"></a>
+          <a href="https://www.instagram.com/realifygames" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+        </div>
+
         <div class="hamburger">
           <span></span>
           <span></span>
           <span></span>
         </div>
-
-        <div class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="games.html">Games</a>
-          <a href="projects.html">Projects</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
-      </div>
-
-      <div class="social-icons">
-        <a href="https://youtube.com/@realify-games?si=Ndj0v5DUrteGaKY_" target="_blank"><img src="images/youtube.png" alt="YouTube"></a>
-        <a href="https://discord.gg/Y5bwM6BC" target="_blank"><img src="images/discord.png" alt="Discord"></a>
-        <a href="https://www.instagram.com/realifygames?igsh=Z3p0d21yYjkzamM2&utm_source=qr" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
       </div>
     </nav>
   </header>
 
-  <!-- MAIN -->
   <main>
-    <section style="text-align:center; padding:50px 20px;">
-      <h2>About Us</h2>
-      <p style="max-width:800px; margin:10px auto 40px; color:#ddd; font-size:1.1rem; text-align:center;">
-        <strong>Realify Games</strong> was founded by two university students united by a passion for game development and interactive storytelling. As a young and ambitious studio, we are dedicated to creating high-quality, engaging games that entertain, challenge, and inspire players.
+    <section class="about-section" style="padding-top: 60px; padding-bottom: 60px;">
+      <div class="page-header" style="text-align: center; margin-bottom: 40px;">
+        <div class="section-header">
+          <span class="sub-title" style="color: var(--primary); letter-spacing: 2px; font-weight: 700;">OUR STORY & VISION</span>
+          <h2 style="font-size: 2.5rem; margin-top: 10px;">About Realify Games</h2>
+        </div>
+      </div>
 
-        Our approach combines creativity, innovation, and technical expertise. Each game we develop reflects our commitment to thoughtful design, compelling narratives, and immersive gameplay. We strive not only to deliver enjoyable experiences but also to push the boundaries of indie game development.
+      <div class="about-container glass-panel" style="max-width: 900px; margin: 0 auto; padding: 40px;">
+        <div class="about-content" style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <p class="highlight-text" style="font-size: 1.25rem; color: var(--text-main); font-weight: 600; border-left: 3px solid var(--primary); padding-left: 20px; line-height: 1.6;">
+            Realify Games is an independent game studio founded by two developers with a clear focus: building games that people genuinely enjoy — and that can scale.
+          </p>
+          
+          <p style="color: var(--text-dim); font-size: 1.05rem; line-height: 1.7;">
+            We develop our projects using Unity, combining solid gameplay design with a structured and efficient development pipeline. Our work is built on C#, version control systems, and iterative production workflows that allow us to move fast while maintaining quality. We prioritize performance, clean architecture, and systems that are scalable as projects grow.
+          </p>
 
-        At <strong>Realify Games</strong>, we see every project as an opportunity to grow as developers, explore new ideas, and make a meaningful contribution to the gaming industry. Our mission is to create games that resonate with players worldwide and leave a lasting impression.
-        <br><br>
-        From cozy adventures to strategic challenges, we aim to deliver games that inspire, entertain, and connect people.  
-        Thank you for being part of our journey! 🚀
-      </p>
+          <p style="color: var(--text-dim); font-size: 1.05rem; line-height: 1.7;">
+            Each game starts with a strong core mechanic. From there, we iterate rapidly — testing, refining, and improving — until the experience feels intuitive, responsive, and engaging. We approach development with a product mindset, focusing not just on building games, but on creating experiences players return to.
+          </p>
+          
+          <p style="color: var(--text-dim); font-size: 1.05rem; line-height: 1.7;">
+            Our portfolio direction spans both casual simulation experiences and strategy-driven gameplay, allowing us to explore different market segments while identifying what resonates most with players. We believe successful games are built on clarity, polish, and strong fundamentals — not unnecessary complexity.
+          </p>
+
+          <div class="mission-box" style="background: rgba(255,106,0,0.05); border: 1px solid var(--border); padding: 30px; border-radius: 15px; margin: 15px 0;">
+            <h4 style="color: var(--primary); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; font-size: 1.1rem;">What We Stand For</h4>
+            <ul style="color: var(--text-main); margin: 0; padding-left: 20px; line-height: 2; font-size: 1.05rem;">
+              <li>Clean, scalable gameplay systems</li>
+              <li>Player-first and data-informed design</li>
+              <li>Continuous iteration and fast learning cycles</li>
+              <li>Lean structure, efficient execution</li>
+            </ul>
+          </div>
+
+          <p style="color: var(--text-dim); font-size: 1.05rem; line-height: 1.7;">
+            We are at an early stage, but we move with a long-term vision: to grow into a studio capable of delivering commercially successful and technically solid games. Every project we release is not just a product, but a step toward building a sustainable and scalable game development business.
+          </p>
+          
+          <p style="color: var(--text-dim); font-size: 1.05rem; line-height: 1.7;">
+            If you’re interested in following — or being part of — that journey, you’re in the right place.
+          </p>
+          
+          <div style="text-align: center; margin-top: 40px; border-top: 1px solid var(--border); padding-top: 40px;">
+            <p class="thanks-note" style="font-weight: 900; color: #fff; font-size: 1.5rem; letter-spacing: 2px; text-transform: uppercase;">
+              Realify Games <br> <span style="color: var(--primary);">Build. Play. Improve. Scale.</span>
+            </p>
+            <a href="games.html" class="btn-main" style="display: inline-block; margin-top: 25px;">EXPLORE OUR GAMES</a>
+          </div>
+
+        </div>
+      </div>
     </section>
   </main>
 
-  <!-- JS for Hamburger -->
   <script>
+    /* Mobile Menu Toggle */
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('show');
-    });
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('show');
+      });
+    }
 
-    const links = document.querySelectorAll('.nav-links a');
-    links.forEach(link => {
+    /* Close menu on link click (Mobile) */
+    document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
-        navLinks.classList.remove('show');
-        hamburger.classList.remove('active');
+        if (navLinks) navLinks.classList.remove('show');
+        if (hamburger) hamburger.classList.remove('active');
       });
     });
   </script>

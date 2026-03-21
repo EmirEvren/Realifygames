@@ -3,36 +3,132 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Realify Games - Home</title>
+  <title>Realify Games | Indie Game Development Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
   <style>
-    /* Başlığı ortalamak için */
-    .games-section h2 {
-      text-align: center;
-      margin-bottom: 2rem;
+    /* ==== SLIDER CUSTOM STYLES (GÜNCELLENDİ) ==== */
+    .games-carousel-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 60px;
+        margin-top: 50px;
+        overflow: hidden;
+    }
+
+    .games-slider {
+        display: flex;
+        gap: 25px; /* Kartlar arası boşluk */
+        scroll-behavior: smooth;
+        overflow-x: auto;
+        scrollbar-width: none;
+        padding: 15px 0;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .games-slider::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Üst tarafa ek boşluk eklendi (PORTFOLIO kısmı için) */
+    .section-header {
+        text-align: center;
+        margin-top: 100px; /* Burası artırıldı */
+        margin-bottom: 40px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slider-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 106, 0, 0.9);
+        color: white;
+        border: none;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 100;
+        font-size: 24px;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .slider-arrow:hover {
+        background: #ff6a00;
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 6px 20px rgba(255,106,0,0.5);
+    }
+
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+
+    .games-slider .game-card {
+        flex: 0 0 calc((100% - 50px) / 3);
+        scroll-snap-align: start;
+    }
+
+    .games-slider .card-image-wrapper {
+        width: 100%;
+        aspect-ratio: 460 / 215;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .games-slider .card-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* İmza Stili */
+    .studio-signature {
+        font-family: 'Dancing Script', cursive;
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-top: 10px;
+        margin-bottom: 20px;
+        display: block;
+        text-shadow: 0 0 10px rgba(255, 106, 0, 0.3);
+    }
+
+    /* Responsive: Mobil ve Tablet */
+    @media (max-width: 992px) {
+        .games-carousel-wrapper { padding: 0 50px; }
+        .games-slider .game-card { flex: 0 0 calc((100% - 25px) / 2); }
+    }
+
+    @media (max-width: 768px) {
+        .games-carousel-wrapper { padding: 0 30px; }
+        .games-slider .game-card { flex: 0 0 100%; }
+        .section-header { margin-top: 60px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <nav>
-      <div class="logo-nav">
+      <div class="left-nav-group">
         <div class="logo">
           <img src="images/logo.png" alt="Realify Games Logo">
         </div>
 
-        <!-- Hamburger menü butonu (mobil için) -->
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
         <div class="nav-links">
-          <a href="index.html">Home</a>
+          <a href="/" class="active">Home</a>
           <a href="games.html">Games</a>
           <a href="projects.html">Projects</a>
           <a href="about.html">About</a>
@@ -40,81 +136,176 @@
         </div>
       </div>
 
-      <div class="social-icons">
-        <a href="https://youtube.com/@realify-games?si=Ndj0v5DUrteGaKY_" target="_blank"><img src="images/youtube.png" alt="YouTube"></a>
-        <a href="https://discord.gg/Y5bwM6BC" target="_blank"><img src="images/discord.png" alt="Discord"></a>
-        <a href="https://www.instagram.com/realifygames?igsh=Z3p0d21yYjkzamM2&utm_source=qr" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+      <div class="right-nav-group">
+        <div class="social-icons">
+          <a href="https://www.youtube.com/@RealifyGames" target="_blank"><img src="images/youtube.png" alt="YouTube"></a>
+          <a href="https://x.com/RealifyGames" target="_blank"><img src="images/xlogo.png" alt="Twitter"></a>
+          <a href="https://discord.gg/2Dh8RU8bVp" target="_blank"><img src="images/discord.png" alt="Discord"></a>
+          <a href="https://www.instagram.com/realifygames" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+        </div>
+
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </nav>
   </header>
 
-  <!-- MAIN -->
+  <section class="hero-premiere">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="status-badge">LATEST RELEASE</span>
+      <h1>Oceanarium Fishing</h1>
+      <p>Dive into the mysteries of the deep blue. Experience our most immersive co-op fishing simulation yet, now available on Steam.</p>
+      <div class="hero-btns">
+        <a href="https://store.steampowered.com/app/4241310/Oceanarium_Fishing/" class="btn-main" target="_blank">GET IT ON STEAM</a>
+        <a href="#games-container" class="btn-outline">OUR PORTFOLIO</a>
+      </div>
+    </div>
+  </section>
+
   <main>
-    <!-- Intro -->
-    <section class="intro-section">
-      <h2>🎮 Welcome to Realify Games</h2>
-      <p class="intro-text">
-      Welcome to Realify Games, where passion meets creativity! We're a small indie game development studio made up of two university students with a shared vision: to create unique, immersive experiences that captivate players around the world. Each game we craft is built with care, aiming to push the limits of storytelling and gameplay. Dive into our worlds and let the adventure begin!
-      </p>
-    </section>
-
-    <!-- About Preview -->
-    <section class="about-preview">
-      <h2>About Us</h2>
-      <p>
-     At Realify Games, we're driven by a love for gaming and a relentless pursuit of innovation. As university students, we know what it's like to balance deadlines and passion, and that’s exactly what fuels our indie game development journey. Our goal is to create memorable, engaging experiences that not only entertain but inspire players to explore new worlds. Every project we take on reflects our commitment to quality, creativity, and pushing the boundaries of what games can be.
-      </p>
-      <a href="about.html" class="btn">Learn More</a>
-    </section>
-
-    <!-- Featured Games -->
     <section class="games-section">
-      <h2>🌟 Featured Games</h2>
-      <div id="games-container" class="games-grid">
-        <!-- Game 1 -->
-        <div class="game-card">
-          <img src="images/oyun1.jpg" alt="Teddy Horses">
-          <h3>Teddy Horses</h3>
-          <p>Buy horses, breed them, and participate in races on the Teddy Bears' farm. Raise champion horses with strategic breeding, win awards, and expand your farm.</p>
-          <a href="https://store.steampowered.com/app/3957780/Teddy_Horses/" target="_blank">View on Steam</a>
+      <div class="section-header" id="games-container">
+        <span class="sub-title">PORTFOLIO</span>
+        <h2>Our Games</h2>
+        <p>Explore our full collection of indie titles, ranging from deep-sea simulations to epic roguelike sagas.</p>
+      </div>
+      
+      <div class="games-carousel-wrapper">
+        <button class="slider-arrow prev-btn" id="prevBtn">&#10094;</button>
+        
+        <div class="games-slider" id="gamesSliderInner">
+          
+          <div class="game-card">
+            <div class="card-image-wrapper">
+              <img src="images/teddyhorses.png" alt="Teddy Bear Horse Farm">
+            </div>
+            <div class="card-info">
+              <span class="game-tagline">Simulation / Management / Racing</span>
+              <h3>Teddy Bear Horse Farm</h3>
+              <p>Step into a world where horse farms are run by Teddy Bears! Breed unique horses and enter races to win rewards.</p>
+              <a href="games.html" class="steam-btn">View on Steam</a>
+            </div>
+          </div>
+
+          <div class="game-card">
+            <div class="card-image-wrapper">
+              <img src="images/kingcharles.png" alt="King Charles">
+            </div>
+            <div class="card-info">
+              <span class="game-tagline">Survival Arena Roguelite</span>
+              <h3>King Charles</h3>
+              <p>A fast-paced survival game where dogs rule the battlefield. Survive relentless waves and grow stronger.</p>
+              <a href="games.html" class="steam-btn">View on Steam</a>
+            </div>
+          </div>
+
+          <div class="game-card">
+            <div class="card-image-wrapper">
+              <img src="images/chasingherlight.png" alt="Chasing Her Light">
+            </div>
+            <div class="card-info">
+              <span class="game-tagline">Narrative Survival Adventure</span>
+              <h3>Chasing Her Light</h3>
+              <p>An emotional journey about loss. Survival in the snow-covered forest with your dog companion.</p>
+              <a href="games.html" class="steam-btn">View on Steam</a>
+            </div>
+          </div>
+
+          <div class="game-card">
+            <div class="card-image-wrapper">
+              <img src="images/dragonfiredefense.png" alt="DragonFire Defense">
+            </div>
+            <div class="card-info">
+              <span class="game-tagline">Tower Defense Roguelite</span>
+              <h3>DragonFire Defense</h3>
+              <p>Choose your dragon and survive endless waves through smart synergies and fortifications.</p>
+              <a href="games.html" class="steam-btn">View on Steam</a>
+            </div>
+          </div>
+
+          <div class="game-card">
+            <div class="card-image-wrapper">
+              <img src="images/oceanariumfishing.png" alt="Oceanarium Fishing">
+            </div>
+            <div class="card-info">
+              <span class="game-tagline">Co-op Survival Simulation</span>
+              <h3>Oceanarium Fishing</h3>
+              <p>Multiplayer survival-fishing. Meet the quota and protect your catch to survive the next day.</p>
+              <a href="games.html" class="steam-btn">View on Steam</a>
+            </div>
+          </div>
+
+          <div class="game-card">
+            <div class="card-image-wrapper">
+              <img src="images/idleslotmachine.png" alt="Idle Slot Machine">
+            </div>
+            <div class="card-info">
+              <span class="game-tagline">Idle / Incremental Management</span>
+              <h3>Idle Slot Machine</h3>
+              <p>Build a chaotic money empire! Automate machines and protect your earnings from gorillas.</p>
+              <a href="games.html" class="steam-btn">View on Steam</a>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Game 2 -->
-        <div class="game-card">
-          <img src="images/oyun2.jpg" alt="Chasing Her Light">
-          <h3>Chasing Her Light</h3>
-          <p>A survival-adventure game about a grieving man who ventures into a snowy forest to find his missing dog, battling the cold and chopping through obstacles with his axe.</p>
-          <a href="https://store.steampowered.com/app/3694270/Chasing_Her_Light/" target="_blank">View on Steam</a>
-        </div>
+        <button class="slider-arrow next-btn" id="nextBtn">&#10095;</button>
+      </div>
+    </section>
 
-        <!-- Game 3 -->
-        <div class="game-card">
-          <img src="images/oyun3.jpg" alt="King Charles: Rise of the Alpha">
-          <h3>King Charles: Rise of the Alpha</h3>
-          <p>A whimsical low-poly survival-adventure game about loyalty, leadership, and the rise of a crowned pup destined to unite the forest.</p>
-          <a href="https://store.steampowered.com/app/3817640/King_Charles_Rise_of_the_Alpha/" target="_blank">View on Steam</a>
-        </div>
+    <section class="studio-brief">
+      <div class="brief-container" style="text-align: center; max-width: 900px; margin: 0 auto; padding: 60px 20px;">
+        <h3 style="font-size: 2.5rem; margin-bottom: 20px;">Crafting worlds. Evoking emotions.</h3>
+        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dim); margin-bottom: 20px;">Beyond the lines of code and bundles of pixels, we are a dedicated duo of student dreamers. We don't just build games; we weave immersive experiences across genres—from the quiet depth of cozy narratives to the intense rush of survival. Our mission is to push boundaries, challenging what small hands can achieve when fueled by massive ambition.</p>
+        
+        <span class="studio-signature">- Realify Games</span>
+        
+        <br>
+        <a href="about.html" class="link-more" style="color: #fff; text-decoration: none; font-weight: 600; margin-top: 10px; display: inline-block;">Learn more about our journey →</a>
       </div>
     </section>
   </main>
 
-  <!-- JS for Hamburger -->
   <script>
+    // Mobil Menü
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('show');
-    });
-
-    const links = document.querySelectorAll('.nav-links a');
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('show');
-        hamburger.classList.remove('active');
+    if(hamburger) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('show');
       });
-    });
+    }
+
+    // Dinamik Slider Kaydırma Logic
+    window.onload = function() {
+      const container = document.getElementById('gamesSliderInner');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      if(nextBtn && prevBtn && container) {
+        nextBtn.onclick = () => {
+          const card = container.querySelector('.game-card');
+          if (card) {
+            const scrollAmount = card.offsetWidth + 25;
+            container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          }
+        };
+
+        prevBtn.onclick = () => {
+          const card = container.querySelector('.game-card');
+          if (card) {
+            const scrollAmount = card.offsetWidth + 25;
+            container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+          }
+        };
+      }
+    };
   </script>
 
 </body>
