@@ -78,6 +78,15 @@ nav {
     width: auto;
     transition: var(--transition);
     filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
+    
+    /* BURADAN İTİBAREN EKLENDİ: Görselin sürüklenmesini ve seçilmesini engeller */
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none; 
+    -moz-user-drag: none; 
+    -o-user-drag: none; 
+    user-drag: none; 
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .logo img:hover {
