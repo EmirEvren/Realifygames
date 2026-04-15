@@ -471,6 +471,7 @@ hover işlemini ana kapsayıcıya taşıyoruz */
     max-width: 1200px;
     margin: 0 auto;
     scroll-snap-type: x mandatory;
+    align-items: stretch; /* Slider içindeki kartların da eşit boyda olmasını zorunlu kılar */
 }
 
 .games-slider::-webkit-scrollbar { display: none; }
@@ -488,6 +489,7 @@ hover işlemini ana kapsayıcıya taşıyoruz */
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px 5%;
+    align-items: stretch; /* Yan yana duran kartların eşit boyda olmasını zorunlu kılar */
 }
 
 /* ==== CONTACT KISMI ==== */
