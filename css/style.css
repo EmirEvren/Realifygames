@@ -290,7 +290,7 @@ hover işlemini ana kapsayıcıya taşıyoruz */
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100%; /* Kartın dikeyde tüm alanı kaplamasını sağlar */
 }
 
 .game-card:hover {
@@ -322,12 +322,18 @@ hover işlemini ana kapsayıcıya taşıyoruz */
 /* Başlıklar ortalandı ve butonlar en alta sabitlendi */
 .card-info { 
     padding: 30px; 
-    flex-grow: 1; 
+    flex-grow: 1; /* Boş alanı doldurması için kritik */
     display: flex; 
     flex-direction: column; 
     text-align: center;
 }
-
+.card-info p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Yazı kısa olsa bile kutuyu esnetip butonu en dibe iter */
+}
 .game-tagline {
     color: var(--primary);
     font-size: 0.7rem;
@@ -551,7 +557,7 @@ hover işlemini ana kapsayıcıya taşıyoruz */
 .card-info .steam-btn, 
 .card-info .btn-main {
     width: 100% !important; 
-    margin-top: auto; 
+    margin-top: auto; /* Butonu her koşulda en alta sabitler */
 }
 
 .btn-main, .btn-outline {
