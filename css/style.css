@@ -73,13 +73,20 @@ nav {
     gap: 50px;
 }
 
+/* Logo Kapsayıcısı - Mobilde dokunma (tap) parlama efektini kaldırır */
+.logo {
+    display: flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent; 
+}
+
 .logo img {
     height: 55px;
     width: auto;
     transition: var(--transition);
     filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
     
-    /* BURADAN İTİBAREN EKLENDİ: Görselin sürüklenmesini ve seçilmesini engeller */
+    /* Masaüstü: Görselin sürüklenmesini ve seçilmesini engeller */
     -webkit-user-drag: none; 
     -khtml-user-drag: none; 
     -moz-user-drag: none; 
@@ -87,13 +94,18 @@ nav {
     user-drag: none; 
     user-select: none;
     -webkit-user-select: none;
+
+    /* MOBİL DÜZELTMESİ: Uzun basıldığında çıkan menüyü ve etkileşimi engeller */
+    -webkit-touch-callout: none; /* iOS Safari'de uzun basma menüsünü kapatır */
+    pointer-events: none; /* Görselin kendisine dokunulmasını iptal eder (Eğer logo <a> linki içindeyse link çalışmaya devam eder) */
 }
 
-.logo img:hover {
+/* Hover efektinin pointer-events: none yüzünden bozulmaması için 
+hover işlemini ana kapsayıcıya taşıyoruz */
+.logo:hover img {
     transform: scale(1.08) rotate(-3deg);
     filter: drop-shadow(0 0 15px var(--primary-glow));
 }
-
 .nav-links {
     display: flex;
     gap: 35px;
