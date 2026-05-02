@@ -1,0 +1,14 @@
+# Bağımlılıklar (Bunun GitHub'da olmasına gerek yok, çok yer kaplar)
+node_modules/
+
+# Gizli Çevre Değişkenleri (Şifrelerin, API keylerin burada olmalı)
+.env
+
+# Hata ve Log kayıtları
+logs
+*.log
+npm-debug.log*
+
+# İşletim sistemi kalıntı dosyaları (Mac ve Windows için)
+.DS_Store
+Thumbs.db
